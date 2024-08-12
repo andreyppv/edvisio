@@ -1,0 +1,157 @@
+import { Body, Controller, HttpCode, HttpStatus, Post,Get,ParseUUIDPipe,Param, UseGuards, Put, SetMetadata , Headers} from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { UsersService } from './users.service';
+import { SigninCreadentialsDto, VerifyOtpDto }from './dto/signin-user.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { RolesGuard } from '../../guards/roles.guard';
+import { ChangePasswordDto } from './dto/change-password.dto';
+import { ForgotPasswordDto } from './dto/forgot-password.dto';
+import { CheckTokenDto, PasswordResetDto } from './dto/pasword-reset.dto';
+import { Roles } from '../../decorators/check-roles.decorator';
+import { UsersRole, UsersRoleID } from '../../guards/roles.guard';
+import { CreateSchoolUserDto } from './dto/add-user.dto';
+
+export enum AuthSummary {
+  SIGN_IN_SUMMARY = 'Sign in for users.',
+  User_verify = 'User Verify'
+}
+
+@ApiTags('Users')
+@Controller('users')
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+  @Post('/signin')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: AuthSummary.SIGN_IN_SUMMARY })
+  async signIn(
+    @Body() signinCreadentialsDto: SigninCreadentialsDto,
+  ){
+    return this.usersService.signIn(signinCreadentialsDto);
+  }
+
+  @ApiBearerAuth()
+  @Roles(UsersRole.ADMIN, UsersRole.SCHOOL)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
+  @Post('/add')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "Creates School User" })
+  async add(@Body() createSchoolUserDto: CreateSchoolUserDto) {
+    return this.usersService.add(createSchoolUserDto);
+  }
+
+  @ApiBearerAuth()
+  @Roles(UsersRole.SCHOOL)
+  @UseGuards(AuthGuard('jwt'),RolesGuard)
+  @Put('/changepassword/:id')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "change borrower password"})
+  async changePassword(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() changePasswordDto:ChangePasswordDto
+  ){
+    return this.usersService.changePassword(id, changePasswordDto)
+  }
+
+  // @ApiBearerAuth()
+  // @Roles('installer')
+  // @UseGuards(AuthGuard('jwt'),RolesGuard)
+  // @Post('/addlogs')
+  // @HttpCode(HttpStatus.OK)
+  // @ApiOperation({ summary: "Add log for installer" })
+  // async logs(
+  //   @Body() logs:Logs
+  // ){
+  //   return this.usersService.logs(logs)
+  // }
+
+  @Post('forgot-password')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "To get password reset link" })
+  async forgotPassword(
+    @Body() forgotPasswordDto:ForgotPasswordDto
+  ){
+    return this.usersService.forgotPassword(forgotPasswordDto);
+  }
+
+  @Post('checkToken')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "To check password reset token is valid or not" })
+  async checkToken(
+    @Body() checkTokenDto:CheckTokenDto
+  ){
+    return this.usersService.checkToken(checkTokenDto);
+  }
+
+  @Post('passwordReset')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "To reset the new password" })
+  async passwordReset(
+    @Body() passwordResetDto:PasswordResetDto
+  ){
+    return this.usersService.passwordReset(passwordResetDto);
+  }
+
+  @ApiBearerAuth()
+  @Roles(UsersRole.SCHOOL)
+  @UseGuards(AuthGuard('jwt'),RolesGuard)
+  @Post('/deactivate/:id')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "Deactivate User" })
+  async deactivate(
+    @Param('id', ParseUUIDPipe) id: string
+  ){
+    return this.usersService.deactivate(id);
+  }
+
+  @ApiBearerAuth()
+  @Roles(UsersRole.SCHOOL)
+  @UseGuards(AuthGuard('jwt'),RolesGuard)
+  @Post('/activate/:id')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "Activate User" })
+  async active(
+    @Param('id', ParseUUIDPipe) id: string
+  ){
+    return this.usersService.activate(id);
+  }
+
+  @ApiBearerAuth()
+  @Roles(UsersRole.SCHOOL)
+  @UseGuards(AuthGuard('jwt'),RolesGuard)
+  @Post('/delete/:id')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "Delete User" })
+  async delete(
+    @Param('id', ParseUUIDPipe) id: string
+  ){
+    return this.usersService.delete(id);
+  }
+
+  @Put('/toggleTwoFactorAuth/:userId')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "update two factor auth" })
+  async toggleTwoFactorAuth(
+    @Param('userId') userId: string ,@Body() toggleValue
+  ){        
+    return this.usersService.toggleTwoFactorAuth(userId, toggleValue)
+  }
+
+  @Get('/getTwoFactorAuth/:id')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: AuthSummary.User_verify })
+  async getTwoFactorAuth(
+    @Param('id', ParseUUIDPipe) id: string
+  ){
+    return this.usersService.getTwoFactorAuth(id);
+  }
+
+  @Post('verifyOtp')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "To check otp is valid or not" })
+  async verifyOtp(
+    @Body() verifyOtpDto:VerifyOtpDto
+  ){
+    return this.usersService.verifyOtp(verifyOtpDto);
+  }
+  
+}

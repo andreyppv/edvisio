@@ -1,0 +1,16 @@
+export const rows = Array(32).fill({
+  date: "08/08/2022",
+  school: "DemoSchool",
+  product: "Item",
+  appId: "LN_11667",
+  borrowerName: "Temeka Adams",
+  studentName: "Jogn Doe",
+  ssn: "348729769",
+  altIdType: "SSN",
+  altIdNumber: "123456789",
+  status: "Active",
+  requestedAmount: "1",
+  decision: "N/A",
+  fico: "N/A",
+  screenTrackingId: "12345",
+});

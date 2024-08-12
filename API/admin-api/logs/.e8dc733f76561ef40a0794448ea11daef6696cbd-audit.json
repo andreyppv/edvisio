@@ -1,0 +1,70 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "logs\\.e8dc733f76561ef40a0794448ea11daef6696cbd-audit.json",
+    "files": [
+        {
+            "date": 1650134963849,
+            "name": "logs\\2022-04-17.log",
+            "hash": "96861941f54bca729d15bbb772b03936"
+        },
+        {
+            "date": 1650281365590,
+            "name": "logs\\2022-04-18.log",
+            "hash": "66a5bba2509d7913fbe477b0817c91c2"
+        },
+        {
+            "date": 1650391243829,
+            "name": "logs\\2022-04-19.log",
+            "hash": "e621c73f5444d31071a89c00cdc83841"
+        },
+        {
+            "date": 1650398020752,
+            "name": "logs\\2022-04-20.log",
+            "hash": "80c73b8c04b5c65fe38683d0349dd3c6"
+        },
+        {
+            "date": 1650573603565,
+            "name": "logs\\2022-04-22.log",
+            "hash": "59724a8f229815535a96ac5c7020211a"
+        },
+        {
+            "date": 1650652222726,
+            "name": "logs\\2022-04-23.log",
+            "hash": "0f5f34c201759b9dfa00e60b174a0a83"
+        },
+        {
+            "date": 1650948822857,
+            "name": "logs\\2022-04-26.log",
+            "hash": "1819f51a6d77be7d5b5b7c2b6a1e5649"
+        },
+        {
+            "date": 1651060830332,
+            "name": "logs\\2022-04-27.log",
+            "hash": "7a97cf1c3fbda876fcae78229c76fb80"
+        },
+        {
+            "date": 1651085611261,
+            "name": "logs\\2022-04-28.log",
+            "hash": "10ecc62b60751a0fe9b402c4071d760d"
+        },
+        {
+<<<<<<< HEAD
+            "date": 1651227668509,
+            "name": "logs\\2022-04-29.log",
+            "hash": "8959df0b080fe6cb02d6c3afe6f24c96"
+        },
+        {
+            "date": 1651481879195,
+            "name": "logs\\2022-05-02.log",
+            "hash": "45290198109df157e4fc0fc7b3a26b13"
+=======
+            "date": 1651261355717,
+            "name": "logs\\2022-04-30.log",
+            "hash": "76784d199b15608e828dab2de5f00e1d"
+>>>>>>> 31cd4a5728c26d399d32b0e97cfc8e14df08c3d5
+        }
+    ]
+}

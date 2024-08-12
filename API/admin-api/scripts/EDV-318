@@ -1,0 +1,60 @@
+-- Adding Column for master School Association
+ALTER TABLE tblmanageschools
+ADD masterSchool_id uuid;
+
+-- Table: public.tblschooluser: used to provide access to specific schools per school user.
+-- DROP TABLE IF EXISTS public.tblschooluser;
+CREATE TABLE IF NOT EXISTS public.tblschooluser (
+    user_id uuid NOT NULL,
+    school_id uuid NOT NULL,
+    CONSTRAINT tblschooluser_pkey PRIMARY KEY (user_id, school_id)
+) TABLESPACE pg_default;
+
+ALTER TABLE
+    IF EXISTS public.tblschooluser OWNER to postgres;
+
+-- Table public.tblunderwriting: represents underwriting associated to each partner school
+-- DROP TABLE IF EXISTS public.tblunderwriting
+
+CREATE TABLE IF NOT EXISTS public.tblunderwriting
+(
+    id serial,
+    product_id integer,
+    school_id uuid,
+    name character varying COLLATE pg_catalog."default",
+    createdat timestamp without time zone NOT NULL DEFAULT now(),
+    updatedat timestamp without time zone NOT NULL DEFAULT now(),
+    CONSTRAINT "PK_bc0cdeaf297e06df76002b98de9" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.tblunderwriting
+    OWNER to postgres;
+
+-- Table public.tblrules: represents a rule associated to specific underwriting
+-- DROP TABLE IF EXISTS public.tblrules;
+
+CREATE TABLE IF NOT EXISTS public.tblrules
+(
+    id serial,
+    disabled boolean NOT NULL DEFAULT false,
+    createdat timestamp without time zone NOT NULL DEFAULT now(),
+    description character varying COLLATE pg_catalog."default",
+    credit_report_fn character varying COLLATE pg_catalog."default",
+    declinedif character varying COLLATE pg_catalog."default",
+    value double precision NOT NULL DEFAULT '0'::double precision,
+    underwriting_id integer NOT NULL,
+    months_constraint double precision,
+    ammount_constraint double precision,
+    years_constraint double precision,
+    CONSTRAINT tblrules_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.tblrules
+    OWNER to postgres;
+
+
+    

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <style>
+    :root,
+    html * {
+      font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif !important;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .document-wrapper {
+      background-color: white;
+      padding: 2em 5em;
+      width: 21cm;
+      min-height: 29.7cm;
+      font-size: 1.5em;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.7em;
+      margin-top: 1.5em;
+    }
+
+    h4 {
+      margin-bottom: 1em;
+    }
+
+    .paragraph {
+      text-align: justify;
+      line-height: 1.4em;
+    }
+
+    .paragraph-sign {
+      text-align: justify;
+      font-size: 1em;
+      line-height: 1.2em;
+      font-weight: bold;
+    }
+
+    .row {
+      display: flex;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    /* Create two equal columns that sits next to each other */
+    .column {
+      flex: 50%;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-size: 0.9167em;
+    }
+
+    .columnSeparator {
+      margin-left: 10px;
+      padding-left: 10px;
+      border-left: 2px solid black;
+      ;
+    }
+
+    .underline {
+      border-bottom: 1px solid black;
+    }
+
+    .margin-right {
+      margin-right: 200px;
+    }
+
+    .bold-field {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    .contract-container {
+      font-size: 0.8em;
+    }
+
+    .container-pdf {
+      height: 11in;
+      width: 8.5in;
+    }
+
+    .contract-container .title {
+      font-weight: 900;
+      font-size: 1.3em;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+
+    .contract-container .title2 {
+      font-weight: bold;
+      font-size: 1.1em;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+
+    .pagebreak {
+      page-break-before: always;
+    }
+
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    .tableSignature {
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    .forty {
+      width: 40%;
+    }
+
+    .sixty {
+      width: 60%;
+    }
+
+    /* see me */
+    .tdSignature {
+      border: solid 1px;
+      padding-left: 5px;
+      padding-bottom: 5px;
+    }
+
+    .arbitration {
+      padding: 10px;
+      margin: 0 0 10px;
+      border: 1px solid #000;
+    }
+
+    .notice {
+      border: 1px solid #000;
+      padding: 0 5px;
+    }
+
+    .rcorners1 {
+      border-radius: 25px;
+      border: 2px solid black;
+      background-color: lightgray;
+      padding: 15px;
+      padding-bottom: 25px;
+      padding-top: 25px;
+      width: 100%;
+      height: auto;
+      font-size: medium;
+    }
+
+    .rcornersTitle {
+      border-top-right-radius: 25px;
+      border-top-left-radius: 25px;
+      border: Opx solid #D5E3B7;
+      background-color: #D5E3B6;
+      padding: 10px;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      margin-left: 3%;
+      width: 200px;
+      height: 23px;
+      font-size: medium;
+      text-align: center;
+      width: 250px;
+    }
+
+    .tdLabel {
+      display: block;
+      float: left;
+      padding: 0px 0;
+      margin-right: 5px;
+    }
+
+    .tdText {
+      display: block;
+      float: left;
+      padding: 0px 0;
+      margin-right: 5px;
+      margin-left: 0px;
+      text-align: left;
+    }
+
+    .tdDate {
+      display: block;
+      float: left;
+      padding: 0px 0;
+      margin-right: 5px;
+      margin-left: 0px;
+      text-align: center;
+    }
+
+    .tdSeparator {
+      display: block;
+      float: left;
+      padding: 0px 0;
+      text-align: center;
+    }
+
+    .tdSpaceLeft {
+      margin-left: 5px;
+    }
+
+    .headerContainer {
+      padding: 0px 20px 20px;
+      width: 100%;
+      font-size: large;
+    }
+
+    .headerContainer .image {
+      width: 35%;
+      margin: 0px 30px 30px 0;
+      float: left;
+    }
+
+    .headerContainer .text {
+      display: inline;
+    }
+  </style>
+
+  <title>RIC</title>
+</head>
+
+<body>
+  <main class="document-wrapper">
+    <section class="container">
+      <div class="contract-container">
+        <div class="headerContainer">
+          <!-- <img class="image" src="../../template/svgs/logos/logo-tuition-flex.svg" /> -->
+          <img class="image" src="data:image/jpeg;base64,{{ logo }}"/>
+          <div class="text">
+            <span><b>TuitionFlex Application and Retail Installment Sale Agreement</b></span>
+            <br />
+            <span style="font-size: medium;">Application ID:</span>
+          </div>
+        </div>
+
+        <div class="rcornersTitle" style="margin-top: 1px">
+          APPLICANT INFORMATION
+        </div>
+        <div class="rcorners1">
+          <table style="width: 100%;">
+            <tr>
+              <td style=" width: 50px">Name:</td>
+              <td class="underline">{{loan.buyer.firstName}}</td>
+              <td class="underline">{{loan.buyer.middleName}}</td>
+              <td class="underline">{{loan.buyer.lastName}}</td>
+            </tr>
+            <tr style="font-size: small; color: grey;">
+              <td style="width: 60px"></td>
+              <td>First</td>
+              <td>Middle</td>
+              <td>Last</td>
+            </tr>
+          </table>
+          <table style="width: 80%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 90px;">Date of Birth:</td>
+              <td class="tdDate underline" style="width: 30px; ">12</td>
+              <td class="tdSeparator">/</td>
+              <td class="tdDate underline" style="width: 30px">12</td>
+              <td class="tdSeparator">/</td>
+              <td class="tdDate underline " style="width: 60px">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 40px;">SSN:</td>
+              <td class="tdDate underline" style="width: 60px">2022</td>
+              <td class="tdSeparator">-</td>
+              <td class="tdDate underline" style="width: 60px">2022</td>
+              <td class="tdSeparator">-</td>
+              <td class="tdDate underline" style="width: 60px">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 14%;">Driver License:</td>
+              <td class="tdText underline " style="width: 35%">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 20%;">Driver License State:</td>
+              <td class="tdText underline" style="width: 15%">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%; margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 15%;">Mailing Address:</td>
+              <td class="tdText underline " style="width: 80%">2022</td>
+            </tr>
+            <tr>
+              <td class="tdLabel" style="width: 20%; margin-top: 10px;">City, State and Zipcode:</td>
+              <td class="tdText underline " style="width: 75%; margin-top: 10px;">2022</td>
+            </tr>
+            <tr>
+              <td class="tdLabel" style="width: 15%; margin-top: 10px;">E-mail Address:</td>
+              <td class="tdText underline " style="width: 75%; margin-top: 10px;">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 25%;">Monthly Housing Expense:</td>
+              <td class="tdText underline " style="width: 28%">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 15%;">Monthly Income:</td>
+              <td class="tdText underline" style="width: 23%">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 14%;">Employer Name:</td>
+              <td class="tdText underline" style="width: 20%">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 22%;">Employer Phone Number:</td>
+              <td class="tdText underline" style="width: 15%">1234567890</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 14%;">Years Employed:</td>
+              <td class="tdText underline" style="width: 8%">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 12%;">Bank Name:</td>
+              <td class="tdText underline" style="width: 25%">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 12%;">Account Type:</td>
+              <td class="tdText underline" style="width: 13%">1234567890</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 15%;">Account Balance:</td>
+              <td class="tdText underline" style="width: 135px">2022</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="rcornersTitle" style="margin-top: 10px">
+          INSTALLMENT INFORMATION
+        </div>
+        <div class="rcorners1" style="margin-top: 0px">
+          <table style="width: 100%;">
+            <tr>
+              <td class="tdLabel" style="width: 12%;">School Name:</td>
+              <td class="tdText underline " style="width: 35%">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 33%;">Student’s Anticipated Graduation Date:</td>
+              <td class="tdText underline" style="width: 15%">2022</td>
+            </tr>
+          </table>
+          <table style="width: 100%;margin-top: 10px">
+            <tr>
+              <td class="tdLabel" style="width: 15%;">Academic Period:</td>
+              <td class="tdText underline " style="width: 82%">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 210px;">Certified Installment Amount: $</td>
+
+              <td class="tdText underline " style="width: 25%">2022</td>
+
+              <td class="tdLabel tdSpaceLeft" style="width: 150px;">School Certified Date:</td>
+              <td class="tdDate underline" style="width: 35px">20</td>
+              <td class="tdSeparator">/</td>
+              <td class="tdDate underline" style="width: 35px">20</td>
+              <td class="tdSeparator">/</td>
+              <td class="tdDate underline" style="width: 35px">2022</td>
+            </tr>
+          </table>
+
+        </div>
+
+        <div class="rcornersTitle" style="margin-top: 10px">
+          REFERENCE INFORMATION
+        </div>
+        <div class="rcorners1" style="margin-top: 0px; padding-top: 10px;">
+          <div class="row">
+            <div class="column">
+              <span>Reference 1</span>
+              <table style="width: 95%;margin-top: 10px;">
+                <tr>
+                  <td style=" width: 50px">Name:</td>
+                  <td class="underline">a</td>
+                  <td class="underline">b</td>
+                  <td class="underline">c</td>
+                </tr>
+                <tr style="font-size: x-small; color: grey;">
+                  <td style="width: 60px"></td>
+                  <td>First</td>
+                  <td>Middle</td>
+                  <td>Last</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: px;">
+                <tr>
+                  <td style="width: 60px">Address:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: 10px;">
+                <tr>
+                  <td style="width: 8%">City:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                  <td style="width: 10%">State:</td>
+                  <td class="underline tdSpaceLeft" style="width: 15%">a</td>
+                  <td style="width: 15%">Zipcode:</td>
+                  <td class="underline tdSpaceLeft" style="width: 20%">a</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: 10px;">
+                <tr>
+                  <td style="width: 28%">Phone Number:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: 10px;">
+                <tr>
+                  <td style="width: 28%">E-mail address:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: 10px;">
+                <tr>
+                  <td style="width: 45%">Relationship to Applicant:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="column columnSeparator">
+              <span>Reference 2</span>
+              <table style="width: 95%;margin-top: 10px;">
+                <tr>
+                  <td style=" width: 50px">Name:</td>
+                  <td class="underline">a</td>
+                  <td class="underline">b</td>
+                  <td class="underline">c</td>
+                </tr>
+                <tr style="font-size: x-small; color: grey;">
+                  <td style="width: 60px"></td>
+                  <td>First</td>
+                  <td>Middle</td>
+                  <td>Last</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: px;">
+                <tr>
+                  <td style="width: 60px">Address:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: 10px;">
+                <tr>
+                  <td style="width: 8%">City:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                  <td style="width: 10%">State:</td>
+                  <td class="underline tdSpaceLeft" style="width: 15%">a</td>
+                  <td style="width: 15%">Zipcode:</td>
+                  <td class="underline tdSpaceLeft" style="width: 20%">a</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: 10px;">
+                <tr>
+                  <td style="width: 28%">Phone Number:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: 10px;">
+                <tr>
+                  <td style="width: 28%">E-mail address:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                </tr>
+              </table>
+              <table style="width: 95%; margin-top: 10px;">
+                <tr>
+                  <td style="width: 43%">Relationship to Applicant:</td>
+                  <td class="underline tdSpaceLeft">a</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="rcornersTitle" style="margin-top: 10px">
+          CO-SIGNER INFORMATION
+        </div>
+        <div class="rcorners1">
+          <table style="width: 100%;">
+            <tr>
+              <td style=" width: 50px">Name:</td>
+              <td class="underline">{{loan.buyer.firstName}}</td>
+              <td class="underline">{{loan.buyer.middleName}}</td>
+              <td class="underline">{{loan.buyer.lastName}}</td>
+            </tr>
+            <tr style="font-size: small; color: grey;">
+              <td style="width: 60px"></td>
+              <td>First</td>
+              <td>Middle</td>
+              <td>Last</td>
+            </tr>
+          </table>
+          <table style="width: 80%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 88px;">Date of Birth:</td>
+              <td class="tdDate underline" style="width: 30px; ">12</td>
+              <td class="tdSeparator">/</td>
+              <td class="tdDate underline" style="width: 30px">12</td>
+              <td class="tdSeparator">/</td>
+              <td class="tdDate underline " style="width: 60px">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 40px;">SSN:</td>
+              <td class="tdDate underline" style="width: 60px">2022</td>
+              <td class="tdSeparator">-</td>
+              <td class="tdDate underline" style="width: 60px">2022</td>
+              <td class="tdSeparator">-</td>
+              <td class="tdDate underline" style="width: 60px">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 14%;">Driver License:</td>
+              <td class="tdText underline " style="width: 35%">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 20%;">Driver License State:</td>
+              <td class="tdText underline" style="width: 15%">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%; margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 8%;"> Address:</td>
+              <td class="tdText underline " style="width: 85%">2022</td>
+            </tr>
+            <tr>
+              <td class="tdLabel" style="width: 20%; margin-top: 10px;">City, State and Zipcode:</td>
+              <td class="tdText underline " style="width: 75%; margin-top: 10px;">2022</td>
+            </tr>
+            <tr>
+              <td class="tdLabel" style="width: 14%; margin-top: 10px;">E-mail Address:</td>
+              <td class="tdText underline " style="width: 75%; margin-top: 10px;">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 25%;">Monthly Housing Expense:</td>
+              <td class="tdText underline " style="width: 28%">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 15%;">Monthly Income:</td>
+              <td class="tdText underline" style="width: 23%">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 14%;">Employer Name:</td>
+              <td class="tdText underline" style="width: 20%">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 22%;">Employer Phone Number:</td>
+              <td class="tdText underline" style="width: 15%">1234567890</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 14%;">Years Employed:</td>
+              <td class="tdText underline" style="width: 8%">2022</td>
+            </tr>
+          </table>
+
+          <table style="width: 100%;margin-top: 10px;">
+            <tr>
+              <td class="tdLabel" style="width: 12%;">Bank Name:</td>
+              <td class="tdText underline" style="width: 25%">2022</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 12%;">Account Type:</td>
+              <td class="tdText underline" style="width: 13%">1234567890</td>
+              <td class="tdLabel tdSpaceLeft" style="width: 15%;">Account Balance:</td>
+              <td class="tdText underline" style="width: 16%">2022</td>
+            </tr>
+          </table>
+        </div>
+    </section>
+  </main>
+</body>
+
+</html>

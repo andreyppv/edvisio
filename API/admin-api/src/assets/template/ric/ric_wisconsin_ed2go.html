@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <style>
+    :root,
+    html * {
+      font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif !important;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .document-wrapper {
+      background-color: white;
+      padding: 2em 5em;
+      width: 21cm;
+      min-height: 29.7cm;
+      font-size: 1.5em;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.7em;
+      margin-top: 1.5em;
+    }
+
+    h4 {
+      margin-bottom: 1em;
+    }
+
+    .paragraph {
+      text-align: justify;
+      line-height: 1.5em;
+    }
+
+    .paragraph-sign {
+      text-align: justify;
+      font-size: 1em;
+      line-height: 1.2em;
+      font-weight: bold;
+    }
+
+    .row {
+      display: flex;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    /* Create two equal columns that sits next to each other */
+    .column {
+      flex: 50%;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-size: 0.9167em;
+    }
+
+    .columnSeparator {
+      margin-left: 10px;
+      padding-left: 10px;
+      border-left: 2px solid black;
+      ;
+    }
+
+    .underline {
+      border-bottom: 1px solid black;
+    }
+
+    .margin-right {
+      margin-right: 200px;
+    }
+
+    .bold-field {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    .contract-container {
+      font-size: 0.8em;
+    }
+
+    .container-pdf {
+      height: 11in;
+      width: 8.5in;
+    }
+
+    .contract-container .title {
+      font-weight: 900;
+      font-size: 1.3em;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+
+    .contract-container .title2 {
+      font-weight: bold;
+      font-size: 1.1em;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+
+    .pagebreak {
+      page-break-before: always;
+    }
+
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    .tableSignature {
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    .forty {
+      width: 40%;
+    }
+
+    .sixty {
+      width: 60%;
+    }
+
+    /* see me */
+    .tdSignature {
+      border: solid 1px;
+      padding-left: 5px;
+      padding-bottom: 5px;
+    }
+
+    .arbitration {
+      padding: 10px;
+      margin: 0 0 10px;
+      border: 1px solid #000;
+    }
+
+    .notice {
+      border: 1px solid #000;
+      padding: 0 5px;
+    }
+
+    .rcorners1 {
+      border-radius: 25px;
+      /* border-top-right-radius: 25px; */
+      border: 2px solid black;
+      background-color: lightgray;
+      padding: 15px;
+      padding-bottom: 25px;
+      padding-top: 25px;
+      width: 100%;
+      height: auto;
+      font-size: medium;
+    }
+
+    .rcornersTitle {
+      border-top-right-radius: 25px;
+      border-top-left-radius: 25px;
+      border: Opx solid #D5E3B7;
+      background-color: #D5E3B6;
+      padding: 10px;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      margin-left: 3%;
+      width: 200px;
+      height: auto;
+      font-size: medium;
+      text-align: center;
+    }
+
+    .tdLabel {
+      display: block;
+      float: left;
+      padding: 0px 0;
+      margin-right: 5px;
+    }
+
+    .tdText {
+      display: block;
+      float: left;
+      padding: 0px 0;
+      margin-right: 5px;
+      margin-left: 0px;
+      text-align: left;
+    }
+
+    .tdDate {
+      display: block;
+      float: left;
+      padding: 0px 0;
+      margin-right: 5px;
+      margin-left: 0px;
+      text-align: center;
+    }
+
+    .tdSeparator {
+      display: block;
+      float: left;
+      padding: 0px 0;
+      text-align: center;
+    }
+
+    .tdSpaceLeft {
+      margin-left: 5px;
+    }
+
+    .headerContainer {
+      padding: 0px 20px 20px;
+      width: 100%;
+      font-size: large;
+    }
+
+    .headerContainer .image {
+      width: 35%;
+      margin: 0px 30px 30px 0;
+      float: left;
+    }
+
+    .headerContainer .text {
+      display: inline;
+    }
+  </style>
+
+  <title>RIC</title>
+</head>
+
+<body>
+  <main class="document-wrapper">
+    <section class="container">
+      <div class="contract-container">
+        <div class="title pagebreak">TUITION FORM PAGE</div>
+        <div class="title pagebreak">RETAIL INSTALLMENT CONTRACT FOR SERVICES</div>
+        <br />
+        <div class="row">
+          <div class="column">
+            <p style="font-size: 1.1em;margin: 10px;"><b>Seller Name: </b>{{loan.school.name}}</p>
+          </div>
+          <div class="column">
+            <p style="font-size: 1.1em;margin: 10px"><b>Buyer Name: </b>{{loan.buyer.name}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <p style="font-size: 1.1em;margin: 10px"><b>Seller Address: </b>{{loan.school.address}}</p>
+          </div>
+          <div class="column">
+            <p style="font-size: 1.1em;margin: 10px"><b>Buyers Address: </b>{{loan.buyer.address}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <p style="font-size: 1.1em;margin: 10px"><b>Seller Telephone Number:</b> {{loan.school.phone}}</p>
+          </div>
+        </div>
+        <BR />
+        <div class="paragraph">
+          In this Retail Installment Sale Agreement (“Agreement”), the words, “you” and “your” mean the Buyer
+          and Co-signer, individually and collectively, who sign this Agreement. The words “Seller,” “we” and “us”
+          mean the Seller named at the top of this Agreement. This Agreement incorporates by reference the
+          Private Education Loan Final Disclosure Statement (the “Final Disclosure Statement”) that accompanies
+          this Agreement.
+        </div>
+
+        <h4>A.&ensp;&ensp;GENERAL TERMS</h4>
+        <div class="paragraph">
+          You agree to purchase from the Seller, on a time basis, subject to the terms of this Agreement, educational
+          services (“Services”) offered by the Seller. You have been given the opportunity to purchase the Services
+          for cash or to finance them pursuant to this Agreement. You have agreed to finance the purchase of the
+          Services over time.
+        </div>
+        <br />
+
+        <div class="paragraph">
+          The Total of Payments shown on the Final Disclosure Statement is the total price of the Services if you pay
+          for them over time so it includes finance charges. The Total of Payments shown in the Final Disclosure
+          Statement assumes that all payments will be made as scheduled. The actual amount you will pay may be
+          more or less depending on your payment record.
+        </div>
+        <br />
+
+        <div class="paragraph">
+          You acknowledge and agree that you may purchase additional Services from the Seller at a later date. Any
+          such additional purchases of Services will not be added to the balance due under this Agreement and
+          instead will be due and payable, or financed in a separate agreement, when you purchase them.
+        </div>
+
+        <h4>B.&ensp;&ensp;PROMISE TO PAY</h4>
+        <div class="paragraph">
+          You promise to pay the Seller, in accordance with the terms of this Agreement and the payment schedule
+          included in the Final Disclosure Statement the Total Loan Amount shown on the Final Disclosure
+          Statement plus finance charges accruing on a daily simple interest basis on the unpaid balance at the
+          Interest Rate shown on the Final Disclosure Statement from today’s date until this Agreement is paid in
+          full, and any other charges or fees you owe according to the terms and conditions of this Agreement.
+          Buyer and any Co-signer who sign this Agreement agree to be jointly and individually liable to us for
+          payment of all amounts due under the Agreement, regardless of who receives the Services.
+        </div>
+        <h4 class="pagebreak">C.&ensp;&ensp;LATE FEE; DISHONORED CHECK FEES</h4>
+        <div class="paragraph">
+          If you do not make a scheduled payment in full by its due date, you agree to pay the late fee shown in the
+          Final Disclosure Statement. If any payment that you make on this Agreement is returned for any reason,
+          you agree to pay the dishonored check fee shown in the Final Disclosure Statement.
+        </div>
+
+        <h4>D.&ensp;&ensp;PAYMENT METHODS</h4>
+        <div class="paragraph">
+          You may make the payments due on this Agreement via check, money order, automated clearing house
+          (ACH) debit from a checking or savings account, or major debit cards.
+        </div>
+
+        <h4>E.&ensp;&ensp;RIGHT TO PREPAY</h4>
+        <div class="paragraph">
+          You have the right to prepay all or any part of the outstanding balance of this Agreement at any time
+          without penalty.
+        </div>
+
+        <h4>F.&ensp;&ensp;DEFAULT</h4>
+        <div class="paragraph">
+          Except as provided below, we may declare this Agreement to be in default if you have outstanding an
+          amount exceeding one full payment for more than 10 days after the scheduled or deferred due dates, or
+          you fail to pay the first payment or the last payment within 40 days of its scheduled or deferred due date.
+        </div>
+
+        <h4>G.&ensp;&ensp;REMEDIES</h4>
+        <div class="paragraph">
+          At any time at least 15 days after you are in default, we may require you to immediately pay us, subject
+          to any refund or notice requirement provided by applicable law, the remaining unpaid balance of the Total
+          Loan Amount, finance charges and all other charges as provided for in this Agreement. If you default, we
+          may refer your Agreement for collection by a third-party collection agency, initiate actions to collect all
+          amounts owed, and/or exercise any other remedies available under law and this Agreement. Buyer and
+          any Co-signer who sign this Agreement understand and agree that our rights and remedies under the
+          Agreement are cumulative. Each of you agrees that we may pursue our rights and remedies against any
+          of you individually, or against both of you collectively, in any order or combination we choose, except to
+          the extent prohibited by law.
+        </div>
+
+        <h4>H.&ensp;&ensp;COLLECTION FEES</h4>
+        <div class="paragraph">
+          If this Agreement is in default and referred to a collection agency or an outside attorney to collect the
+          outstanding debt, you will pay the costs of collection, including reasonable attorneys’ fees, to the extent
+          permitted by applicable law.</div>
+
+        <h4>I.&ensp;&ensp;WAIVER</h4>
+        <div class="paragraph">
+          The Seller will not lose any rights under this Agreement if it delays taking action for any reason. Any change
+          to this Agreement must be in writing and signed by the Seller.
+        </div>
+
+        <h4 class="pagebreak">J.&ensp;&ensp;ASSIGNMENT</h4>
+        <div class="paragraph">
+          You may not assign this Agreement or any of its benefits and obligations. The Seller may assign this
+          Agreement at any time.
+        </div>
+
+        <h4>K.&ensp;&ensp;APPLICABLE LAW</h4>
+        <div class="paragraph">
+          The Agreement is governed by and will be subject to applicable federal law and the law of the state of
+          your permanent residence as shown on the front of this Agreement.
+        </div>
+
+        <h4>L.&ensp;&ensp;CREDIT REPORTING</h4>
+        <div class="paragraph">
+          The Seller may report information about this Agreement to consumer credit bureaus. Late payments,
+          missed payments or other defaults on your Agreement may be reflected on your credit report. You have
+          the right to dispute the accuracy and completeness of any information reported about this Agreement to
+          a consumer reporting agency. You may do this by giving us notice at our address shown on the front of
+          this Agreement, and also by notifying the consumer reporting agency, as provided by law.
+        </div>
+
+        <h4>M. &ensp;&ensp;OBLIGATION AND ACKNOWLEDGMENT OF BUYER</h4>
+        <div class="paragraph">
+          You agree to make all scheduled payments, in the amounts and by the due dates shown in the Final
+          Disclosure Statement. You acknowledge that under the terms of this Agreement, the Services provided to
+          the Buyer are provided as an ongoing and continuing service. You agree that the Buyer’s access to courses
+          through the Seller is contingent upon this Agreement being paid according to its terms and that, in
+          addition to the above remedies for default, if you fail to make any scheduled payment, to the extent
+          permitted by law, the Seller may deny access to your course, withhold your certificate, or any other Seller
+          service.
+        </div>
+
+        <h4>N.&ensp;&ensp;MODIFICATIONS</h4>
+        <div class="paragraph">
+          This Agreement contains all of the terms of your agreement with us related to the subject matter of this
+          Agreement. Any change to this Agreement must be in writing and we must sign it. No oral changes are
+          binding.
+        </div>
+
+        <h4>O.&ensp;&ensp;ADDITIONAL PROVISIONS</h4>
+        <div class="paragraph">
+          This Agreement is not effective until accepted by the Seller. The Buyer and the Co-signer agree to notify
+          the Seller of any change in their name or address, or the Buyer’s Seller enrollment status, within ten (10)
+          days of such occurrence. You represent that you have not made any false written statement with respect
+          to this Agreement. We do not intend to charge or collect, and you do not agree to pay, any finance charge
+          that is more than the maximum amount permitted for this sale by applicable law. If you pay a finance
+          charge or fee that is more than allowed by applicable law, we will apply it first to reduce the principal
+          balance and, when the principal has been paid in full, refund it to you. You understand and agree that, for
+          purposes of evaluating, reviewing, servicing, or collecting this Agreement, we may: (1) obtain and use
+          credit information and other information about you provided by third parties and consumer reporting agencies;
+          and (2) provide information about you and the status of this Agreement to third parties and
+          consumer reporting agencies. We will, upon request, inform you whether we obtained a consumer report
+          about you and, if we did, inform you of the name and address of the reporting agency that provided the
+          consumer report. You also authorize us to contact the person identified by the Buyer as having authority
+          to act on behalf of the Buyer in the event of the Buyer’s death.
+        </div>
+
+        <h4>P.&ensp;&ensp;SEVERABILITY</h4>
+        <div class="paragraph">
+          If any provision of this Agreement is determined to be unenforceable or is prohibited by law, such
+          provision shall be considered ineffective without invalidating the remaining provisions of this Agreement.
+        </div>
+
+        <h4>Q.&ensp;&ensp;CONFLICT BETWEEN THE FINAL DISCLOSURE STATEMENT AND THIS AGREEMENT</h4>
+        <div class="paragraph">
+          You understand and agree that if the information in your Final Disclosure Statement conflicts with the
+          information in this Agreement, the information in your Final Disclosure Statement shall control.
+        </div>
+
+        <h4>
+          R.&ensp;&ensp;COMMUNICATION CONSENT
+        </h4>
+        <div class="paragraph">
+          You agree that we may monitor and record telephone calls regarding your account to assure the quality
+          of our service or for other reasons. You agree that we may call you, using an automatic telephone dialing
+          system or otherwise, leave you a voice, prerecorded, or artificial voice message, or send you a text, email,
+          or other electronic message for any purpose related to the servicing and collection of your account with
+          us (each a "Communication"). You agree that we may send a Communication to any telephone numbers,
+          including cellular telephone numbers, or e-mail addresses you provided to us in connection with the
+          origination of this Agreement or at any time in the future. You acknowledge and confirm that you have
+          the authority to provide the consent because you are either the subscriber of the telephone number(s) or
+          you are the non-subscriber customary user who has authority to provide the consent. You also agree that
+          we may include your personal information in a Communication. You agree that we will not charge you
+          for a Communication, but your service provider may. In addition, you understand and agree that we may
+          always communicate with you in in any manner permissible by law that does not require your prior
+          consent.</div>
+
+        <h4>
+          S.&ensp;&ensp;CO-SIGNER RELEASE
+        </h4>
+        <div class="paragraph">
+          Notwithstanding any other term of this Agreement, in the event that the Buyer dies before the balance
+          due under this Agreement is paid in full, we will cancel the remaining balance due under this Agreement.
+          In that event, Co-signer will be released from all liability to us under this Agreement. We will notify the
+          Co-signer within a reasonable timeframe if this provision of this Agreement applies.
+        </div>
+        <br />
+        <div class="paragraph">ANY HOLDER OF THIS CONSUMER CREDIT SALE AGREEMENT IS SUBJECT TO ALL CLAIMS AND DEFENSES
+          WHICH THE DEBTOR COULD ASSERT AGAINST THE SELLER OF GOODS AND SERVICES OBTAINED
+          PURSUANT HERETO OR WITH THE PROCEEDS HEREOF. RECOVERY HEREUNDER BY THE DEBTOR SHALL
+          NOT EXCEED AMOUNTS PAID BY THE DEBTOR HEREUNDER.</div>
+
+        <div class="title2 pagebreak">SIGNATURE PAGE</div>
+
+        <div class="paragraph-sign">
+          By signing, you agree that you received a completely filled-in copy of this Agreement and that
+          you are subject to and bound by all of the terms and conditions set forth in this Agreement.</div>
+        <br />
+        <br />
+        <div class="paragraph-sign">
+          NOTICE TO BUYER: (a) Do not sign this contract before you read it or if any spaces intended for
+          the agreed terms, except as to unavailable information, are blank.(b) You are entitled to a copy
+          of this contract at the time you sign it. (c) You may at any time pay off the full unpaid balance
+          due under this contract, and in so doing you may receive a partial rebate of the service charge.
+          (d) The service charge does not exceed _____ % (must be filled in) per annum computed
+          monthly.</div>
+
+        <div class="row">
+          <div class="column underline margin-right">
+            <p style="font-size: 1em;">{{loan.buyer.name}}</p>
+          </div>
+          <div class="column underline">
+            <p style="font-size: 1em;">
+              {{loan.school.representative}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column margin-right">
+            Buyer
+          </div>
+          <div class="column">
+            Seller Representative
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="column underline margin-right">
+            <p style="font-size: 1em;">{{loan.buyer.signature}}</p>
+          </div>
+          <div class="column underline">
+            <p style="font-size: 1em;">
+              {{loan.school.repSignature}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column margin-right">
+            Buyer's Signature
+          </div>
+          <div class="column">
+            Signature
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="column underline margin-right">
+            <p style="font-size: 1em;">{{loan.buyer.signDate}}</p>
+          </div>
+          <div class="column underline">
+            <p style="font-size: 1em;">
+              {{loan.school.signDate}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column margin-right">
+            Date
+          </div>
+          <div class="column">
+            Date
+          </div>
+        </div>
+
+        <br />
+
+        <div class="paragraph-sign">
+          <b>COSIGNER:</b>
+        </div>
+        <br />
+        <div class="paragraph-sign">
+          <b>The undersigned hereby agrees and accepts the terms and conditions of this Agreement. The
+            undersigned further acknowledges that the Federal Notice to Co-signer, Supplemental State Notices to
+            Co-signer (if applicable) and a completely filled in and exact copy of all pages of this Agreement have
+            been received and consents to be bound thereby. The obligation of the Co-signer as described in the
+            Federal Notice to Co-signer and Supplemental State Notices to Co-signer (if applicable) is limited by
+            federal law in the event of the Borrower’s death.
+          </b>
+        </div>
+        <br /><br />
+        <table class="tableSignature" style="width: 450px">
+          <tr>
+            <td style="width: 22%;">Co-signer: </td>
+            <td style="border-bottom: solid 1px;">{{loan.cosigner.signature}}</td>
+          </tr>
+        </table>
+        <br />
+        <table class="tableSignature" style="width: 500px;">
+          <tr>
+            <td style="width: 39%;">Co-signer's Signature: </td>
+            <td style="border-bottom: solid 1px;">{{loan.cosigner.name}}</td>
+          </tr>
+        </table>
+        <br />
+        <table class="tableSignature" style="width: 300px;">
+          <tr>
+            <td style="width: 18%;">Date: </td>
+            <td style="border-bottom: solid 1px;">{{loan.cosigner.signDate}}</td>
+          </tr>
+        </table>
+    </section>
+  </main>
+</body>
+
+</html>

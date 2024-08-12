@@ -1,0 +1,13 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "plugins": [
+      "@nestjs/swagger"
+    ],
+    "assets": [
+      "assets/**/*",
+      "modules/loan/underwriting/transunion/cert/**/*"
+    ]    
+  }
+}

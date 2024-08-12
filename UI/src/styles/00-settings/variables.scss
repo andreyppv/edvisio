@@ -1,0 +1,15 @@
+:root {
+  // SHADOWS
+  --shadow-2: 0px 0.2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-4: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-6: 0px 8px 14px rgba(0, 0, 0, 0.08);
+  --shadow-12: 0px 12px 22px rgba(0, 0, 0, 0.12);
+
+  --header-height: 76px;
+  --footer-height: 146px;
+  --container-large-width: 1300px;
+  --container-medium-width: 960px;
+  --container-sm-width: 720px;
+  --container-xsm-width: 430px;
+  --main-height: calc(100vh - var(--header-height) - var(--footer-height));
+}

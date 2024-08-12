@@ -1,0 +1,325 @@
+<html>
+
+<head>
+
+    <style>
+       
+        .container {
+            width:80%; margin: 0 auto;
+            font-family: sans-serif;
+            color: rgb(95, 92, 92);
+            
+        }
+
+        .topContainer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-bottom: 2px solid black;
+            margin-bottom: 10px;
+        }
+
+        .header1 {
+            
+            color: white;
+            background-color: rgb(95, 92, 92);
+            font-weight: 600;
+            align-items: center;
+            padding: 10px 35px;
+        }
+
+        .header2 {
+
+            width: 60%;
+            font-style: 600;
+            margin-left: 10px;
+
+            line-height: 10%;
+        }
+
+        .heading {
+          
+            color: white;
+            background-color: rgb(159, 155, 155);
+            width: 20%;
+            font-weight: 600;
+            padding: 0 15px;
+
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            border: 2px solid rgb(159, 155, 155);
+            width: 100%;
+        }
+
+        td {
+            padding-left: 15px;
+            padding-top: 10px;
+        }
+
+        .content {
+            padding: 15px 7px;
+        }
+
+        .heading1 {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .tblhead {
+
+            color: white;
+            background: rgb(159, 155, 155);
+        }
+
+        .tblhead1 {
+            color: white;
+            background: rgb(159, 155, 155);
+            padding: 10px;
+            width: 35%;
+            text-align: left;
+        }
+
+        .tableReason {
+            text-align: center;
+            border-collapse: collapse;
+            border-color: rgb(159, 155, 155);
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <div class='topContainer'>
+            <div class='header1'>
+                FACTS
+            </div>
+            <div class='header2'>
+                <p> WHAT DOES  {{schoolName}} </p>
+                <p> DO WITH YOUR PERSONAL INFORMORATION ?</p>
+            </div>
+
+        </div>
+
+        <table border="1">
+            <tr>
+                <td class='heading'>Why?</td>
+                <td class='content'>Financial companies choose how they share your personal information. Federal law
+                    gives
+                    consumers the right to limit some but not all sharing. Federal law also requires us to tell you how
+                    we collect, share, and protect your personal information. Please read this notice carefully to
+                    understand what we do.</td>
+            </tr>
+        </table>
+        <table border="1">
+            <tr>
+                <td class='heading'>What?</td>
+                <td class='content'>The types of personal information we collect and share depend on the product or
+                    service you
+                    have with us. This information can include:
+                    <ul>
+                        <li>Social Security number and checking /credit card account information</li>
+                        <li>Account transactions and account balances</li>
+                        <li>Credit history and payment history</li>
+                    </ul>
+                </td>
+
+            </tr>
+        </table>
+
+        <table border="1">
+            <tr>
+                <td class='heading'>How?</td>
+                <td class='content'> All financial companies need to share customers’ personal information to run their
+                    everyday
+                    business. In the section below, we list the reasons financial companies can share their
+                    customers’ personal information; the reasons your school chooses to share; and whether
+                    you can limit this sharing.</td>
+            </tr>
+        </table>
+        <table border="1" class="tableReason">
+            <tr class='tblhead'>
+                <th class=heading1>Reasons we can share your personal information</th>
+                <th class=heading2>Do we share?</th>
+                <th class=heading2>Can you limit this sharing?</th>
+            </tr>
+            <tr>
+                <td style="padding:20px; text-align: left;"><strong>For our everyday business purposes—</strong>
+                    <p>such as to process your transactions, maintain
+                        your account(s), respond to court orders and legal
+                        investigations, or may report to credit bureaus</p>
+                </td>
+                <td>Yes</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td style="padding:20px; text-align: left;"><strong>For our marketing purposes—</strong>
+                    <p>to offer our products and services to you</p>
+                </td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td style="padding:20px; text-align: left;"><strong>For joint marketing with other financial
+                        companies</strong></td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+
+            <tr>
+                <td style="padding:20px; text-align: left;">
+                    <strong>For our affiliates’ everyday business purposes—</strong>
+                    <p>information about your creditworthiness</p>
+                </td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td style="padding:20px; text-align: left;"><strong>For nonaffiliates to market to you</strong></td>
+                <td>No</td>
+                <td>No</td>
+
+            </tr>
+        </table>
+        <table style="width:100%">
+            <tr >
+                <td style="
+                background-color:rgb(159, 155, 155); 
+                width:20%;
+                color:white;
+              
+                
+                ">Questions?</td>
+                <td style="line-height: 10%;">
+                    <p>Contact: {{contactName}}</p>
+                    <p>Phone: {{phone}}</p>
+                    <p>Email:{{email}}</p>
+                    <br>
+                    <br>
+                </td>
+            </tr>
+        </table>
+        <table border="1">
+            <tr>
+                <th class='tblhead1'>Who we are</th>
+                <th class="tblhead1"></th>
+            </tr>
+            <tr>
+                <th>Who is providing this notice?</th>
+                <td>To protect your personal information from unauthorized access
+                    and use, we use security measures that comply with federal law.
+                    These measures include computer safeguards and secured files
+                    and buildings.</td>
+            </tr>
+        </table>
+        <table border="1">
+            <tr>
+                <th class='tblhead1'>What we do</th>
+                <th class="tblhead1"></th>
+            </tr>
+            <tr>
+                <th>How do we protect your personal
+                    information?
+                    To</th>
+                <td>To protect your personal information from unauthorized access
+                    and use, we use security measures that comply with federal law.
+                    These measures include computer safeguards and secured files
+                    and buildings.</td>
+
+            </tr>
+            <tr>
+                <th>How do we collect your personal
+                    information?</th>
+                <td>We collect your personal information, for example, when you
+                    <ul>
+                        <li>apply for a loan or give us your contact information</li>
+                        <li>pay us by check, credit or debit card or provide employment
+                            information</li>
+                        <li>provide information in order to qualify for a deferment, forbearance,
+                            or alternative repayment schedule</li>
+                    </ul>
+                </td>
+
+            </tr>
+            <tr>
+                <th>Why can’t I limit all sharing?</th>
+                <td>Federal law gives you the right to limit only
+                    <ul>
+                        <li>sharing for affiliates’ everyday business purposes—information
+                            about your creditworthiness</li>
+                        <li>affiliates from using your information to market to you</li>
+                        <li>sharing for nonaffiliates to market to you</li>
+                    </ul>
+                    State laws and individual companies may give you additional rights to
+                    limit sharing.
+                </td>
+            </tr>
+
+        </table>
+        <table border="1" colspan="2">
+            <tr>
+                <th class="tblhead1">Definitions</th>
+                <th class="tblhead1"></th>
+            </tr>
+            <tr>
+                <th>Affiliates</th>
+                <td>Companies related by common ownership or control. They can be
+                    financial and nonfinancial companies.
+                    <ul>
+                        <li>none.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Nonaffiliates
+                </th>
+                <td>Companies not related by common ownership or control. They can be
+                    financial and nonfinancial companies.
+                    <ul>
+                        <li>none</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Joint marketing</th>
+                <td>A formal agreement between nonaffiliated financial companies that
+                    together market financial products or services to you.
+                    <ul>
+                        <li>none</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <table border="1" style="line-height: 10%;">
+            <tr class="tblhead1">
+                <th class=heading1 style="text-align: left; margin: 15px;">Other important information</th>
+            </tr>
+            <td style="padding-left: 15px;">
+                <p>Your Servicer:</p>
+                <p>Launch Servicing</p>
+                <p>Phone and Hours</p>
+                <p>(877) 354-2629</p>
+                <p>Monday through Friday 8AM - 5PM Central Time</p> <br>
+
+                <p>Payments Address</p>
+                <p>Launch Servicing</p>
+                <p>P.O. BOX 91910</p>
+                <p>Sioux Falls, SD 57109-1910</p> <br>
+
+                <p>Mailing Address</p>
+                <p>Launch Servicing</p>
+                <p>2300 E 54th Street North</p>
+                <p>Sioux Falls, SD 57104</p>
+                <br>
+                <br>
+            </td>
+            
+        </table>
+        <p>This notice is being made on behalf of Education Loan Source for</p>
+    </div>
+</body>
+
+</html>
